@@ -17,12 +17,12 @@ export default new Router({
     {
       path: '/demo-001',
       name: 'demo-001',
-      component: () => import('@/components/demo-001.vue')
+      component: () => import('@/components/demo-001/demo-001.vue')
     },
     {
       path: '/demo-002',
       name: 'demo-002',
-      component: () => import('@/components/demo-002.vue')
+      component: () => import('@/components/demo-002/demo-002.vue')
     }
   ]
 })
