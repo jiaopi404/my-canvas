@@ -11,13 +11,14 @@ export default {
   name: 'demo-001.vue',
   data () {
     return {
-      ctx: null
+      ctx: null,
+      x: 0
     }
   },
   mounted () {
     this.init()
-    window.requestAnimationFrame(this.draw)
-    // this.draw()
+    // window.requestAnimationFrame(this.draw)
+    this.draw()
   },
   methods: {
     init () {
@@ -27,6 +28,10 @@ export default {
     draw () {
       this.drawRect()
       this.drawPolygon()
+      this.x += 1
+      if (this.x >= 270) {
+        this.x = 0
+      }
       window.requestAnimationFrame(this.draw)
     },
     drawRect () {
@@ -36,13 +41,13 @@ export default {
     drawPolygon () {
       this.ctx.clearRect(0, 0, 300, 150)
       this.ctx.beginPath()
-      this.ctx.moveTo(Math.random() * 300, Math.random() * 150)
-      this.ctx.lineTo(Math.random() * 300, Math.random() * 150)
-      this.ctx.lineTo(Math.random() * 300, Math.random() * 150)
+      this.ctx.moveTo(this.x, 75)
+      this.ctx.lineTo(this.x + 30, 45)
+      this.ctx.lineTo(this.x + 30, 105)
       // this.ctx.stroke()
       this.ctx.fillStyle = 'pink'
+      // this.ctx.rotate(5 * Math.PI / 360)
       this.ctx.fill()
-      this.ctx.rotate(1)
       // note
     }
   }
